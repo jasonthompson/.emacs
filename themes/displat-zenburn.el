@@ -418,23 +418,6 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(guide-key/highlight-command-face ((t (:foreground ,displat-zenburn-blue))))
    `(guide-key/key-face ((t (:foreground ,displat-zenburn-green))))
    `(guide-key/prefix-command-face ((t (:foreground ,displat-zenburn-green+1))))
-;;;;; helm
-   `(helm-header
-     ((t (:foreground ,displat-zenburn-green
-                      :background ,displat-zenburn-bg
-                      :underline nil
-                      :box nil))))
-   `(helm-source-header
-     ((t (:foreground ,displat-zenburn-yellow
-                      :background ,displat-zenburn-bg-1
-                      :underline nil
-                      :weight bold
-                      :box (:line-width -1 :style released-button)))))
-   `(helm-selection ((t (:background ,displat-zenburn-bg+1 :underline nil))))
-   `(helm-selection-line ((t (:background ,displat-zenburn-bg+1))))
-   `(helm-visible-mark ((t (:foreground ,displat-zenburn-bg :background ,displat-zenburn-yellow-2))))
-   `(helm-candidate-number ((t (:foreground ,displat-zenburn-green+4 :background ,displat-zenburn-bg-1))))
-   `(helm-ff-directory ((t (:foreground ,displat-zenburn-magenta))))
 ;;;;; hl-line-mode
    `(hl-line-face ((,class (:background ,displat-zenburn-bg-05))
                    (t :weight bold)))

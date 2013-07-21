@@ -7,7 +7,7 @@
 
 (defvar my-packages
   '(ac-nrepl auto-complete clojure-mode fuzzy geiser highlight idomenu markdown-mode mic-paren
-	     nrepl paredit popup rainbow-delimiters rainbow-mode undo-tree)
+	     nrepl paredit popup rainbow-delimiters rainbow-mode undo-tree magit)
   "A list of packages to ensure are installed at launch.")
 
 (mapc
