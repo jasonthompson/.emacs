@@ -1,0 +1,7 @@
+ls
+rm displat-theme.el*
+ls
+rm *~
+ls
+rm displat-zenburn.el
+ls

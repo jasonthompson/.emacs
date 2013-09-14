@@ -111,7 +111,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(header-line ((t (:foreground ,displat-zenburn-yellow
                                   :background ,displat-zenburn-bg-1
                                   :box (:line-width -1 :style released-button)))))
-   `(highlight ((t (:background ,displat-zenburn-bg-05))))
+   `(highlight ((t (:background ,displat-zenburn-blue))))
    `(success ((t (:foreground ,displat-zenburn-green :weight bold))))
    `(warning ((t (:foreground ,displat-zenburn-orange :weight bold))))
 ;;;;; compilation
@@ -134,11 +134,11 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(grep-error-face ((t (:foreground ,displat-zenburn-red-1 :weight bold :underline t))))
    `(grep-hit-face ((t (:foreground ,displat-zenburn-blue))))
    `(grep-match-face ((t (:foreground ,displat-zenburn-orange :weight bold))))
-   `(match ((t (:background ,displat-zenburn-bg-1 :foreground ,displat-zenburn-orange :weight bold))))
+   `(match ((t (:background ,displat-zenburn-blue :foreground ,displat-zenburn-orange :weight bold))))
 ;;;;; isearch
-   `(isearch ((t (:foreground ,displat-zenburn-yellow-2 :weight bold :background ,displat-zenburn-bg-1))))
+   `(isearch ((t (:foreground ,displat-zenburn-yellow-2 :weight bold :background ,displat-zenburn-blue))))
    `(isearch-fail ((t (:foreground ,displat-zenburn-fg :background ,displat-zenburn-red-4))))
-   `(lazy-highlight ((t (:foreground ,displat-zenburn-yellow-2 :weight bold :background ,displat-zenburn-bg-05))))
+   `(lazy-highlight ((t (:foreground ,displat-zenburn-yellow-2 :weight bold :background ,displat-zenburn-blue))))
 
    `(menu ((t (:foreground ,displat-zenburn-fg :background ,displat-zenburn-bg))))
    `(minibuffer-prompt ((t (:foreground ,displat-zenburn-yellow))))
@@ -152,8 +152,8 @@ Also bind `class' to ((class color) (min-colors 89))."
      ((t (:foreground ,displat-zenburn-green-1
                       :background ,displat-zenburn-bg-05
                       :box (:line-width -1 :style released-button)))))
-   `(region ((,class (:background ,displat-zenburn-bg-1))
-             (t :inverse-video t)))
+   `(region ((,class (:background ,displat-zenburn-blue
+                                  :foreground ,displat-zenburn-bg))))
    `(secondary-selection ((t (:background ,displat-zenburn-bg+2))))
    `(trailing-whitespace ((t (:background ,displat-zenburn-red))))
    `(vertical-border ((t (:foreground ,displat-zenburn-fg))))
@@ -698,7 +698,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    '(term-default-fg-color ((t (:inherit term-color-white))))
    '(term-default-bg-color ((t (:inherit term-color-black))))
 ;;;;; volatile-highlights
-   `(vhl/default-face ((t (:background ,displat-zenburn-bg-05))))
+   `(vhl/default-face ((t (:background ,displat-zenburn-blue))))
 ;;;;; emacs-w3m
    `(w3m-anchor ((t (:foreground ,displat-zenburn-yellow :underline t
                                  :weight bold))))
