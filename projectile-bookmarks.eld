@@ -1,1 +1,0 @@
-("~/.emacs.d/" "~/dev/under_fire/" "~/dev/csv_to_ledger/" "~/dev/minitest-doc_reporter/" "~/Downloads/discid-0.1.3/src/linux/" "~/Downloads/discid-0.1.3/" "~/dev/prax/")
