@@ -1,19 +1,25 @@
 (require 'package)
 (add-to-list 'package-archives
              '("marmalade" . "http://marmalade-repo.org/packages/"))
+(add-to-list 'package-archives
+     '("melpa" . "http://melpa.milkbox.net/packages/"))
+
+(add-to-list 'package-archives
+     '("gnu" . "http://elpa.gnu.org/packages/"))
+
 (package-initialize)
 
 (setq url-http-attempt-keepalives nil)
 
 (defvar my-packages
   '(auto-complete clojure-mode fuzzy geiser highlight idomenu markdown-mode mic-paren
-		  nrepl paredit popup rainbow-delimiters rainbow-mode undo-tree magit ac-nrepl rinari)
+                  nrepl paredit popup rainbow-delimiters rainbow-mode undo-tree magit ac-nrepl rinari)
   "A list of packages to ensure are installed at launch.")
 
 (mapc
  (lambda (package)
    (or (package-installed-p package)
-       (if (y-or-n-p (format "Package %s is missing. Install it? " package)) 
+       (if (y-or-n-p (format "Package %s is missing. Install it? " package))
            (package-install package))))
  my-packages)
 
@@ -31,32 +37,22 @@
  (setq whitespace-style '(face empty tabs lines-tail trailing))
  (global-whitespace-mode t)
 
-;; Files to load
-(load-file "~/.emacs.d/elisp/displat-windows.el")
+;;rect-mark (rectangular selection)
+(require 'rect-mark)
+(global-set-key (kbd "C-x r C-SPC") 'rm-set-mark)
+(global-set-key (kbd "C-w")
+                '(lambda(b e) (interactive "r")
+                   (if rm-mark-active
+                       (rm-kill-region b e) (kill-region b e))))
+(global-set-key (kbd "M-w")
+                '(lambda(b e) (interactive "r")
+                   (if rm-mark-active
+                       (rm-kill-ring-save b e) (kill-ring-save b e))))
+(global-set-key (kbd "C-x C-x")
+                '(lambda(&optional p) (interactive "p")
+                   (if rm-mark-active
+                       (rm-exchange-point-and-mark p) (exchange-point-and-mark p))))
 
-;; General Settings
-(set-default-font "SourceCodePro 12")
-(add-to-list 'load-path "~/.emacs.d/elisp/")
-(setq linum-format "%3d")
-(global-linum-mode t)
-(setq inhibit-splash-screen t)
-(tool-bar-mode -1)
-(setq visible-bell t)
-
-(setq backup-directory-alist
-      `((".*" . ,temporary-file-directory)))
-(setq auto-save-file-name-transforms
-      `((".*" ,temporary-file-directory t)))
-
-
-;; Save all tempfiles in $TMPDIR/emacs$UID/                                                        
-(defconst emacs-tmp-dir (format "%s/%s%s/" temporary-file-directory "emacs" (user-uid)))
-(setq backup-directory-alist
-      `((".*" . ,emacs-tmp-dir)))
-(setq auto-save-file-name-transforms
-      `((".*" ,emacs-tmp-dir t)))
-(setq auto-save-list-file-prefix
-      emacs-tmp-dir)
 
 ;; Clojure Stuff
 (add-hook 'nrepl-interaction-mode-hook
@@ -75,51 +71,21 @@
 (setq nrepl-eval-sexp-fu-flash-duration 0.5)
 
 (require 'rainbow-delimiters)
+(require 'smartparens-config)
 
+(smartparens-global-mode)
+(load-file "~/.emacs.d/conf/general-conf.el")
+(load-file "~/.emacs.d/conf/appearance-conf.el")
 (load-file "~/.emacs.d/conf/auto-complete-conf.el")
 (load-file "~/.emacs.d/conf/nrepl-conf.el")
 (load-file "~/.emacs.d/conf/paredit-conf.el")
 (load-file "~/.emacs.d/conf/clojure-conf.el")
+(load-file "~/.emacs.d/conf/ruby-conf.el")
 
-;; Theme Stuff
-(add-to-list 'custom-theme-load-path "/home/jason/.emacs.d/themes/")
-(load-theme 'displat-zenburn t)
 
 ;;bindings
 (load-file "~/.emacs.d/lib/bindings.el")
 
-;;ruby  stuff
-(defun set-newline-and-indent ()
-    (local-set-key (kbd "RET") 'newline-and-indent))
-(add-hook 'lisp-mode-hook 'set-newline-and-indent)
-
-;;change to ruby 2
-(add-to-list 'load-path "~/.emacs.d/elisp/chruby.el")
-(require 'rvm)
-(rvm-use-default)
-
-(add-to-list 'load-path "~/.emacs.d/elisp/ruby-dev.el")
-(autoload 'turn-on-ruby-dev "ruby-dev" nil t)
-(add-hook 'ruby-mode-hook 'turn-on-ruby-dev)
-(add-hook 'ruby-mode-hook 'robe-mode)
-
-(add-to-list 'load-path "~/.emacs.d/elisp/enhanced-ruby-mode") ; must be added after any path containing old ruby-mode
-(autoload 'enh-ruby-mode "enh-ruby-mode" "Major mode for ruby files" t)
-(add-to-list 'auto-mode-alist '("\\.rb$" . enh-ruby-mode))
-(add-to-list 'auto-mode-alist '("Guardfile" . enh-ruby-mode))
-(add-to-list 'auto-mode-alist '("\\.gemspec" . enh-ruby-mode))
-(add-to-list 'interpreter-mode-alist '("ruby" . enh-ruby-mode))
-
-;;use pry for inf-ruby
-(load-file "~/.emacs.d/elisp/inf-ruby-settings.el")
-;;resense
-(setq rsense-home "/opt/rsense-0.3")
-(add-to-list 'load-path (concat rsense-home "/etc"))
-(require 'rsense)
-
-(require 'smartparens-config)
-(require 'smartparens-ruby)
-(smartparens-global-mode)
 (show-smartparens-global-mode t)
 (sp-with-modes '(rhtml-mode)
   (sp-local-pair "<" ">")
@@ -175,3 +141,6 @@
 (global-set-key (kbd "<f2>") 'visit-ansi-term)
 (put 'downcase-region 'disabled nil)
 (put 'upcase-region 'disabled nil)
+
+;;Multi-term
+(setq multi-term-program-swithes "--login")

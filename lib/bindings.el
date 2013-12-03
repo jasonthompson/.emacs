@@ -10,6 +10,9 @@
 (global-set-key (kbd "C-c w e") 'embiggen-window)
 (global-set-key (kbd "C-c w E") 'emsmallen-window)
 
+;;whitespace
+(global-set-key (kbd "C-c d w") 'whack-whitespace)
+
 ;;emacs-lisp shortcuts
 (global-set-key (kbd "C-c m s") 'eval-and-replace) ;swap
 (global-set-key (kbd "C-c m b") 'eval-buffer)

@@ -111,7 +111,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(header-line ((t (:foreground ,displat-zenburn-yellow
                                   :background ,displat-zenburn-bg-1
                                   :box (:line-width -1 :style released-button)))))
-   `(highlight ((t (:background ,displat-zenburn-blue))))
+   `(highlight ((t (:background ,displat-zenburn-blue :foreground ,displat-zenburn-bg-2))))
    `(success ((t (:foreground ,displat-zenburn-green :weight bold))))
    `(warning ((t (:foreground ,displat-zenburn-orange :weight bold))))
 ;;;;; compilation
@@ -134,11 +134,11 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(grep-error-face ((t (:foreground ,displat-zenburn-red-1 :weight bold :underline t))))
    `(grep-hit-face ((t (:foreground ,displat-zenburn-blue))))
    `(grep-match-face ((t (:foreground ,displat-zenburn-orange :weight bold))))
-   `(match ((t (:background ,displat-zenburn-blue :foreground ,displat-zenburn-orange :weight bold))))
+   `(match ((t (:background ,displat-zenburn-blue :foreground ,displat-zenburn-bg-2 :weight bold))))
 ;;;;; isearch
-   `(isearch ((t (:foreground ,displat-zenburn-yellow-2 :weight bold :background ,displat-zenburn-blue))))
+   `(isearch ((t (:foreground ,displat-zenburn-bg-2 :weight bold :background ,displat-zenburn-blue))))
    `(isearch-fail ((t (:foreground ,displat-zenburn-fg :background ,displat-zenburn-red-4))))
-   `(lazy-highlight ((t (:foreground ,displat-zenburn-yellow-2 :weight bold :background ,displat-zenburn-blue))))
+   `(lazy-highlight ((t (:foreground ,displat-zenburn-bg-2 :weight bold :background ,displat-zenburn-blue))))
 
    `(menu ((t (:foreground ,displat-zenburn-fg :background ,displat-zenburn-bg))))
    `(minibuffer-prompt ((t (:foreground ,displat-zenburn-yellow))))

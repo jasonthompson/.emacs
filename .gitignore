@@ -3,3 +3,8 @@ target
 url
 *~
 session.*
+\#*#
+ac-comphist.dat
+auto-save-list
+elpa.contents
+eshell/
