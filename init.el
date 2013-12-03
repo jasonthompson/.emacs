@@ -12,8 +12,12 @@
 (setq url-http-attempt-keepalives nil)
 
 (defvar my-packages
-  '(auto-complete clojure-mode fuzzy geiser highlight idomenu markdown-mode mic-paren
-                  nrepl paredit popup rainbow-delimiters rainbow-mode undo-tree magit ac-nrepl rinari)
+  '(grizzl ac-nrepl ag auto-complete flx-ido flx fuzzy geiser haskell-mode
+           highlight idomenu magit markdown-mode mic-paren multi-term nrepl
+           clojure-mode pandoc-mode paredit popup projectile rainbow-delimiters
+           rainbow-mode rect-mark rinari jump inflections findr robe
+           ruby-compilation inf-ruby rvm s smartparens dash undo-tree)
+  
   "A list of packages to ensure are installed at launch.")
 
 (mapc
