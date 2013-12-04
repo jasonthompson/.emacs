@@ -1,9 +1,0 @@
-;;; Displat Windows -- Convenient Window manipulation functions
-
-(defun embiggen-window (cols)
-  (interactive "nNumber of columns: ")
-  (enlarge-window-horizontally cols))
-
-(defun emsmallen-window (cols)
-  (interactive "nNumber of columns: ")
-  (shrink-window-horizontally cols))

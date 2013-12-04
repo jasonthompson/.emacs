@@ -58,21 +58,6 @@
                        (rm-exchange-point-and-mark p) (exchange-point-and-mark p))))
 
 
-;; Clojure Stuff
-(add-hook 'nrepl-interaction-mode-hook
-  'nrepl-turn-on-eldoc-mode)
-(require 'mic-paren)
-(paren-activate)
-
-;; Chuck stuff
-(require 'chuck-mode)
-
-;; Highlight expression on eval
-(require 'easymenu)
-(require 'nrepl-eval-sexp-fu)
-(require 'highlight)
-(turn-on-nrepl-eval-sexp-fu-flash-mode)
-(setq nrepl-eval-sexp-fu-flash-duration 0.5)
 
 (require 'rainbow-delimiters)
 (require 'smartparens-config)
@@ -86,6 +71,18 @@
 (load-file "~/.emacs.d/conf/clojure-conf.el")
 (load-file "~/.emacs.d/conf/ruby-conf.el")
 
+;; Clojure Stuff
+(add-hook 'nrepl-interaction-mode-hook
+  'nrepl-turn-on-eldoc-mode)
+(require 'mic-paren)
+(paren-activate)
+
+;; Highlight expression on eval
+(require 'easymenu)
+(require 'nrepl-eval-sexp-fu)
+(require 'highlight)
+(turn-on-nrepl-eval-sexp-fu-flash-mode)
+(setq nrepl-eval-sexp-fu-flash-duration 0.5)
 
 ;;bindings
 (load-file "~/.emacs.d/lib/bindings.el")
