@@ -1,3 +1,5 @@
+(defvar windows-p (string-equal system-type "windows-nt"))
+
 (require 'package)
 (add-to-list 'package-archives
              '("marmalade" . "http://marmalade-repo.org/packages/"))

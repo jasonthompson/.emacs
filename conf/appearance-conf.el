@@ -1,4 +1,6 @@
 ;; Theme Stuff
-(add-to-list 'custom-theme-load-path "/home/jason/.emacs.d/themes/")
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
 (load-theme 'displat-zenburn t)
-(set-default-font "SourceCodePro 12")
+(if windows-p
+    (set-default-font "Source Code Pro-11")
+    (set-default-font "SourceCodePro 12"))

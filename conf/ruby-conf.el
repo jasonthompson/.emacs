@@ -4,7 +4,10 @@
 (autoload 'turn-on-ruby-dev "ruby-dev" nil t)
 (add-hook 'enh-ruby-mode-hook 'turn-on-ruby-dev)
 
-(setq enh-ruby-program "~/.rubies/ruby-2.0.0-p247/bin/ruby")
+(if windows-p
+    (setq enh-ruby-program "/C:/rubies/Ruby200")
+    (setq enh-ruby-program "~/.rubies/ruby-2.0.0-p247/bin/ruby"))
+
 (add-to-list 'load-path "~/.emacs.d/elisp/enhanced-ruby-mode") ; must be added after any path containing old ruby-mode
 (autoload 'enh-ruby-mode "enh-ruby-mode" "Major mode for ruby files" t)
 (add-to-list 'auto-mode-alist '("\\.rb$" . enh-ruby-mode))
