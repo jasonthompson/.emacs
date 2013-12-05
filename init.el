@@ -57,12 +57,10 @@
                    (if rm-mark-active
                        (rm-exchange-point-and-mark p) (exchange-point-and-mark p))))
 
-
-
 (require 'rainbow-delimiters)
 (require 'smartparens-config)
-
 (smartparens-global-mode)
+
 (load-file "~/.emacs.d/conf/general-conf.el")
 (load-file "~/.emacs.d/conf/appearance-conf.el")
 (load-file "~/.emacs.d/conf/auto-complete-conf.el")
@@ -70,6 +68,10 @@
 (load-file "~/.emacs.d/conf/paredit-conf.el")
 (load-file "~/.emacs.d/conf/clojure-conf.el")
 (load-file "~/.emacs.d/conf/ruby-conf.el")
+
+;;Projectile
+(projectile-global-mode)
+(setq projectile-completion-system 'grizzl)
 
 ;; Clojure Stuff
 (add-hook 'nrepl-interaction-mode-hook
@@ -87,7 +89,6 @@
 ;;bindings
 (load-file "~/.emacs.d/lib/bindings.el")
 
-(show-smartparens-global-mode t)
 (sp-with-modes '(rhtml-mode)
   (sp-local-pair "<" ">")
   (sp-local-pair "<%" "%>"))

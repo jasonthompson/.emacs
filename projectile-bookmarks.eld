@@ -1,0 +1,1 @@
+("~/dev/nomos/" "~/.emacs.d/")
